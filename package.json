@@ -16,7 +16,7 @@
 	"bugs": "https://github.com/newyoungcoder/excel-to-i18n.git/issues",
 	"main": "src/index.js",
 	"bin": {
-		"toi18n": "src/index.js"
+		"exceltoi18n": "src/index.js"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"

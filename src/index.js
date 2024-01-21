@@ -1,19 +1,19 @@
-'use strict'
+"use strict"
 
-import * as fs from 'fs'
-import * as xlsx from 'xlsx/xlsx.mjs'
-import { program } from 'commander'
-import { promisify } from 'util'
+import * as fs from "fs"
+import * as xlsx from "xlsx/xlsx.mjs"
+import { program } from "commander"
+import { promisify } from "util"
 
 // 使用promisify将fs.writeFile方法转化为Promise形式
 const writeFileAsync = promisify(fs.writeFile)
 
 // 设置命令行参数
 program
-	.option('-i, --input <input>', 'excel路径')
-	.option('-o, --output <output>', '输出路径', './')
-	.option('-ifc, --ignore-first-col', '忽略第一列', true)
-	.option('-k, --key <key>', '第几列作为key', 0)
+	.option("-i, --input <input>", "excel路径")
+	.option("-o, --output <output>", "输出路径", "./")
+	.option("-ifc, --ignore-first-col", "忽略第一列", true)
+	.option("-k, --key <key>", "第几列作为key", 0)
 
 // 解析命令行参数
 program.parse()
@@ -23,7 +23,6 @@ const {
 	ignoreFirstCol,
 	key: keyCol,
 } = program.opts()
-console.log('keyCol: ', typeof keyCol, keyCol)
 
 // 使用xlsx的set_fs方法设置fs
 xlsx.set_fs(fs)
@@ -43,13 +42,13 @@ for (const sheetName in workbook.Sheets) {
 
 		// 如果忽略第一列，移除每个子数组的第一个元素
 		if (ignoreFirstCol) {
-			jsonData = jsonData.map((item) => {
+			jsonData = jsonData.map(item => {
 				item.shift()
 				return item
 			})
 		}
 
-		const keys = jsonData[0].map((col) => {
+		const keys = jsonData[0].map(col => {
 			if (!i18n[col]) {
 				i18n[col] = {}
 			}
@@ -60,7 +59,7 @@ for (const sheetName in workbook.Sheets) {
 		jsonData = jsonData.slice(1)
 
 		// 遍历jsonData，生成i18n对象
-		jsonData.forEach((row) => {
+		jsonData.forEach(row => {
 			let key = row[+keyCol]
 			row.forEach((col, colIndex) => {
 				i18n[keys[colIndex]][key] = col
