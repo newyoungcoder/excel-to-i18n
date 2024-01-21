@@ -1,6 +1,6 @@
 {
 	"name": "excel-i18n-converter",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "bee",
 	"description": "excel to i18n",
 	"type": "module",
