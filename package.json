@@ -1,5 +1,5 @@
 {
-	"name": "excel-to-i18n",
+	"name": "excel-i18n-converter",
 	"version": "1.0.0",
 	"author": "bee",
 	"description": "excel to i18n",
@@ -16,7 +16,7 @@
 	"bugs": "https://github.com/newyoungcoder/excel-to-i18n.git/issues",
 	"main": "src/index.js",
 	"bin": {
-		"exceltoi18n": "src/index.js"
+		"convert": "src/index.js"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
