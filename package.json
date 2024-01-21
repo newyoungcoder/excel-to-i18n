@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"author": "bee",
 	"description": "excel to i18n",
+	"type": "module",
 	"keywords": [
 		"utils",
 		"excel",
